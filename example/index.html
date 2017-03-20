@@ -1,0 +1,55 @@
+<html>
+<head></head>
+<body>
+<div id="app">
+  <p><input type="number" v-model="a"/>
+    + <input type="number" v-model="b"/>
+    = <span v-if="calculating">[calculating]</span> <span v-else>{{result}}</span></p>
+  <p>Performed <strong>{{count}}</strong> calculations. The result of the first calculation was <strong>{{firstResult}}</strong>.</p>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="../vue-computed-promise.js"></script>
+<script>
+Vue.use(VueComputedPromise);
+var vue = new Vue({
+  el: "#app",
+  data: {
+    a: 1,
+    b: 2,
+    calculating: false,
+    count: 0
+  },
+  computed: {
+    firstResult: function() {
+      var data = this.$data;
+      return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+          resolve(data.a +  data.b);
+        }, 1000);
+      });
+    },
+    result: function() {
+      // these properties are reactive dependencies
+      var _a = Number(this.a);
+      var _b = Number(this.b);
+
+      return () => {
+        // these properties are not reactive
+        var data = this.$data;
+        data.calculating = true;
+
+        return new Promise(function(resolve, reject) {
+          setTimeout(function() {
+            resolve(_a + _b);
+            data.calculating = false;
+            data.count++;
+          }, 1000);
+        });
+      };
+    }
+  }
+})
+</script>
+</body>
+</html>

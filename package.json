@@ -1,0 +1,26 @@
+{
+  "name": "vue-computed-promise",
+  "version": "1.0.0",
+  "description": "Plugin for Vue.js, allows promises to be returned for computed properties",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polarisation/vue-computed-promise.git"
+  },
+  "keywords": [
+    "vuejs",
+    "promise"
+  ],
+  "author": "Justin Emery",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Polarisation/vue-computed-promise/issues"
+  },
+  "homepage": "https://github.com/Polarisation/vue-computed-promise#readme",
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
