@@ -2,10 +2,10 @@
 <head></head>
 <body>
 <div id="app">
-  <p><input type="number" v-model="a"/>
-    + <input type="number" v-model="b"/>
-    = <span v-if="calculating">[calculating]</span> <span v-else>{{result}}</span></p>
-  <p>Performed <strong>{{count}}</strong> calculations. The result of the first calculation was <strong>{{firstResult}}</strong>.</p>
+  <p><input type="number" v-model="a" id="a"/>
+    + <input type="number" v-model="b" id="b"/>
+    = <span v-if="calculating">[calculating]</span> <span v-else id="result">{{result}}</span></p>
+  <p>Performed <strong id="count">{{count}}</strong> calculations. The result of the first calculation was <strong id="first_result">{{firstResult}}</strong>.</p>
 </div>
 
 <script src="https://unpkg.com/vue"></script>
