@@ -1,6 +1,6 @@
 {
   "name": "vue-computed-promise",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Plugin for Vue.js, allows promises to be returned for computed properties",
   "main": "vue-computed-promise.js",
   "scripts": {
