@@ -30,7 +30,13 @@ var VueComputedPromise = {
 					let promiseInitiated = false;
 					this.$options.computed[key] = function() {
 						let data = this.$data;
-						let result = oldComputed[key].call(this);
+						let result;
+						// Computed property can be either object or function
+						if (typeof oldComputed[key] === "object") {
+							result = oldComputed[key];
+						} else {
+							result = oldComputed[key].call(this);
+						}
 
             if(result && typeof result === "function") {
 							if(!promiseInitiated) {
