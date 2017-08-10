@@ -6,6 +6,8 @@
     + <input type="number" v-model="b" id="b"/>
     = <span v-if="calculating">[calculating]</span> <span v-else id="result">{{result}}</span></p>
   <p>Performed <strong id="count">{{count}}</strong> calculations. The result of the first calculation was <strong id="first_result">{{firstResult}}</strong>.</p>
+  <hr/>
+  {{parameterizedGetter}}
 </div>
 
 <script src="https://unpkg.com/vue"></script>
@@ -46,6 +48,11 @@ var vue = new Vue({
             data.count++;
           }, 1000);
         });
+      };
+    },
+    parameterizedGetter: function() {
+      return function(param1) {
+        return "not a promise. test for https://github.com/Polarisation/vue-computed-promise/issues/2";
       };
     }
   }

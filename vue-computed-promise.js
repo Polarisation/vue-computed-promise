@@ -38,7 +38,7 @@ var VueComputedPromise = {
 							result = oldComputed[key].call(this);
 						}
 
-						if(result && typeof result === "function") {
+						if(result && typeof result === "function" && result.length === 0) {
 							if(!promiseInitiated) {
 								promiseInitiated = true;
 								var promise = result();

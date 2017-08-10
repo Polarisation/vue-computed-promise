@@ -47,7 +47,7 @@ Until the Promise resolves, the value of `null` is returned by the computed prop
 
 In the example above `oneplustwo` is never re-computed. The Promise will only be called once (or never if the property is not used in the template).
 
-To return a Promise which may be re-computed when reactive dependencies change, you will need to return a function which in turn returns a Promise:
+To return a Promise which may be re-computed when reactive dependencies change, you will need to return a parameter-less function which in turn returns a Promise:
 
 ```
 var vue = new Vue({
