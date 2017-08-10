@@ -1,29 +1,29 @@
 {
-  "name": "vue-computed-promise",
-  "version": "1.0.2",
-  "description": "Plugin for Vue.js, allows promises to be returned for computed properties",
-  "main": "vue-computed-promise.js",
-  "scripts": {
-    "test": "node_modules/nightwatch/bin/nightwatch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Polarisation/vue-computed-promise.git"
-  },
-  "keywords": [
-    "vuejs",
-    "promise"
-  ],
-  "author": "Justin Emery",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Polarisation/vue-computed-promise/issues"
-  },
-  "homepage": "https://github.com/Polarisation/vue-computed-promise#readme",
-  "devDependencies": {
-    "geckodriver": "^1.4.0",
-    "nightwatch": "^0.9.14",
-    "selenium-server-standalone-jar": "3.3.1"
-  },
-  "dependencies": {}
+	"name": "vue-computed-promise",
+	"version": "1.0.2",
+	"description": "Plugin for Vue.js, allows promises to be returned for computed properties",
+	"main": "vue-computed-promise.js",
+	"scripts": {
+		"test": "node_modules/nightwatch/bin/nightwatch"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Polarisation/vue-computed-promise.git"
+	},
+	"keywords": [
+		"vuejs",
+		"promise"
+	],
+	"author": "Justin Emery",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Polarisation/vue-computed-promise/issues"
+	},
+	"homepage": "https://github.com/Polarisation/vue-computed-promise#readme",
+	"devDependencies": {
+		"geckodriver": "^1.4.0",
+		"nightwatch": "^0.9.14",
+		"selenium-server-standalone-jar": "3.3.1"
+	},
+	"dependencies": {}
 }

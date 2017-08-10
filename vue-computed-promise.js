@@ -13,18 +13,18 @@ var VueComputedPromise = {
 
 				// cerate placeholder data properties
 				this.$options.data = function() {
-          let newData = (
-              (typeof oldData === 'function')
-                ? oldData.call(this)
-                : oldData
-             ) || {};
-          Object.keys(oldComputed).forEach(key => {
-            newData[key + "VueComputedPromisePlaceholder"] = null;
-          })
-          return newData;
+					let newData = (
+							(typeof oldData === 'function')
+								? oldData.call(this)
+								: oldData
+						 ) || {};
+					Object.keys(oldComputed).forEach(key => {
+						newData[key + "VueComputedPromisePlaceholder"] = null;
+					})
+					return newData;
 				};
 
-        // wrap computed properties
+				// wrap computed properties
 				this.$options.computed = {};
 				Object.keys(oldComputed).forEach(key => {
 					let promiseInitiated = false;
@@ -38,38 +38,38 @@ var VueComputedPromise = {
 							result = oldComputed[key].call(this);
 						}
 
-            if(result && typeof result === "function") {
+						if(result && typeof result === "function") {
 							if(!promiseInitiated) {
 								promiseInitiated = true;
-	              var promise = result();
-	              if(promise && promise.then && promise.catch) { // looks like a Promise
-	                  // var oldValue = data[key + "VueComputedPromisePlaceholder"];
-	                  promise.then(r => {
-	                    data[key + "VueComputedPromisePlaceholder"] = r;
-	                  });
-	                  // return placeholder until Promise result is ready
-	                  return data[key + "VueComputedPromisePlaceholder"];
-	              } else { // not actually a promise
-	                throw new Error("VueComputedPromise: "+key+" function returned must return a Promise");
-	              }
+								var promise = result();
+								if(promise && promise.then && promise.catch) { // looks like a Promise
+										// var oldValue = data[key + "VueComputedPromisePlaceholder"];
+										promise.then(r => {
+											data[key + "VueComputedPromisePlaceholder"] = r;
+										});
+										// return placeholder until Promise result is ready
+										return data[key + "VueComputedPromisePlaceholder"];
+								} else { // not actually a promise
+									throw new Error("VueComputedPromise: "+key+" function returned must return a Promise");
+								}
 							} else {
 								promiseInitiated = false;
 								return data[key + "VueComputedPromisePlaceholder"];
 							}
-            }
+						}
 
-            if(result && result.then && result.catch) { // looks like a Promise
+						if(result && result.then && result.catch) { // looks like a Promise
 							result.then(r => {
 								oldComputed[key] = () => r;  // ensure promise will not be called in loop
 
-							  // overwrite placeholder with final result of Promise
+								// overwrite placeholder with final result of Promise
 								data[key + "VueComputedPromisePlaceholder"] = r;
 							})
 							// return placeholder until Promise result is ready
 							return data[key + "VueComputedPromisePlaceholder"];
 						}
 
-            else // standard vue behavior
+						else // standard vue behavior
 							return result;
 					}
 				});
