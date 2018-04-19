@@ -23,7 +23,7 @@
 	"devDependencies": {
 		"geckodriver": "^1.8.0",
 		"nightwatch": "^0.9.16",
-		"selenium-server-standalone-jar": "3.4.0"
+		"selenium-server-standalone-jar": "3.11.0"
 	},
 	"dependencies": {}
 }
