@@ -1,4 +1,6 @@
 # vue-computed-promise
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Polarisation/vue-computed-promise.svg)](https://greenkeeper.io/)
 Plugin for Vue.js, allows promises to be returned for computed properties
 
 **Note:** you may prefer to use the more popular [https://github.com/foxbenjaminfox/vue-async-computed](vue-async-computed). At the time I wrote this plugin, **vue-async-computed** was not sufficient for my needs but since lazy-loading was added it would be. Now the differences are mostly of style - this plugin may be preferred if you want to use computed promises in a more seemless way (using the standard 'computed' key), but there is some risk of conflicts with other plugins. In contrast, **vue-async-computed** is less likely to conflict with plugins because it introduces a new 'asyncComputed' key.
